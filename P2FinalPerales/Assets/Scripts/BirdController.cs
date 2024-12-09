@@ -37,6 +37,7 @@ public class BirdController : MonoBehaviour
     {
         isDead = true;
         PlaySound(Death);
+        GameControl.Instance.BirdDied();
     }
     
     
