@@ -9,6 +9,7 @@ public class BirdController : MonoBehaviour
     public AudioClip Death;
     public AudioClip Flap;
     AudioSource audioSource;
+    private Animator anim;
 
     private bool isDead = false;
     private Rigidbody2D rb2d;
@@ -17,6 +18,7 @@ public class BirdController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         audioSource = GetComponent <AudioSource>();
+        anim = GetComponent<Animator>();
     }
 
     
@@ -29,6 +31,7 @@ public class BirdController : MonoBehaviour
                 rb2d.velocity = Vector2.zero;
                 rb2d.AddForce(new Vector2(0, upForce));
                 PlaySound(Flap);
+                anim.SetTrigger("Flap");
             }
         }
     }
